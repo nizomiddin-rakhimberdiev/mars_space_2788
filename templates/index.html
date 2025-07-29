@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Asosiy - Mars Panel{% endblock %}
+
+{% block content %}
+<!-- Ogohlantirish -->
+<div class="alert alert-warning text-center">
+    Avgust oyi uchun to‘lov yaqinlashmoqda. To‘lov qilishni unutmang!
+</div>
+
+<!-- Banner -->
+<div class="card shadow-sm border-0 mt-3" style="background: linear-gradient(90deg, #4A006C, #9400D3); color: white;">
+    <div class="card-body d-flex justify-content-between align-items-center">
+        <div>
+            <h5 class="fw-bold mb-2">QUEENS GAME</h5>
+            <p class="mb-1">SPACE MOBILEDA O‘YNAYMIZ</p>
+            <button class="btn btn-light btn-sm fw-bold">MOBIL ILOVANI YANGI VERSIYASINI YUKLAB OLING</button>
+        </div>
+        <div>
+            <img src="https://i.ibb.co/jyFg7m4/crown.png" alt="Crown" style="width: 130px;">
+        </div>
+    </div>
+</div>
+
+<!-- Qo'shimcha dars -->
+<div class="row mt-4">
+    <div class="col-md-6 col-lg-4 mb-3">
+        <div class="card shadow-sm border-0 p-3">
+            <h6 class="fw-bold">Qo'shimcha dars</h6>
+            <div class="d-flex flex-wrap gap-2 mt-2">
+                <button class="btn btn-outline-secondary btn-sm">Dush</button>
+                <button class="btn btn-outline-info btn-sm">Sesh</button>
+                <button class="btn btn-outline-secondary btn-sm">Chor</button>
+                <button class="btn btn-outline-secondary btn-sm">Pay</button>
+                <button class="btn btn-outline-secondary btn-sm">Jum</button>
+                <button class="btn btn-outline-secondary btn-sm">Shan</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-3">
+        <div class="card shadow-sm border-0 text-center p-3">
+            <h6 class="fw-bold">Online kurs boshlanmagan</h6>
+            <a href="#" class="btn btn-primary btn-sm mt-2">Boshlash</a>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-4 mb-3">
+        <div class="card shadow-sm border-0 text-center p-3">
+            <h6 class="fw-bold">Dars topilmadi</h6>
+            <a href="#" class="btn btn-primary btn-sm mt-2">Boshlash</a>
+        </div>
+    </div>
+</div>
+
+<!-- Typing -->
+<div class="row mt-3">
+    <div class="col-md-6 col-lg-4 mb-3">
+        <div class="card shadow-sm border-0 text-center p-3">
+            <h6 class="fw-bold">Typing</h6>
+            <p class="small">Typing tezligini aniqlaymiz</p>
+            <a href="#" class="btn btn-success btn-sm">Play</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

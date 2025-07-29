@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Space Shop{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <button class="btn btn-outline-secondary btn-sm fw-bold me-2">HERO SHOP</button>
+        <button class="btn btn-warning btn-sm fw-bold text-white">SPACE SHOP</button>
+    </div>
+    <a href="#" class="text-danger small fw-bold">Xaridlar tarixi ></a>
+</div>
+
+<div class="row g-3">
+    <!-- Card 1 -->
+    {% for product in products %}
+    <div class="col-6 col-md-4 col-lg-3">
+        <div class="card shadow-sm border-0 p-2 text-center h-100">
+            <img src="{{ product.image.url }}" class="mx-auto d-block mb-2" alt="Mars Pen" style="max-height: 200px;">
+            <h6 class="fw-bold mb-1">{{ product.name }}</h6>
+            <p class="mb-1 text-muted">
+                {{ product.price }} <span class="text-warning">🪙</span> | <span class="text-success">{{ product.stock }} ta qoldi</span>
+            </p>
+            <a href="#" class="text-primary small fw-bold">Sotib olish ></a>
+        </div>
+    </div>
+  {% endfor %}
+
+
+    <!-- Qolgan cardlar ham shu tartibda -->
+</div>
+
+<style>
+    .card {
+        border-radius: 12px;
+        transition: all 0.2s ease-in-out;
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .card img {
+        object-fit: contain;
+    }
+</style>
+{% endblock %}

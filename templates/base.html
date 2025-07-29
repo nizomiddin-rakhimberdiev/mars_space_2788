@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mars Panel{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Arial', sans-serif;
+        }
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            background-color: #ffffff;
+            border-right: 1px solid #e5e5e5;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            display: block;
+            padding: 12px 20px;
+            margin: 5px 15px;
+            font-weight: 500;
+            border-radius: 8px;
+        }
+        .sidebar a.active {
+            background-color: #FF5A2C;
+            color: #fff;
+        }
+        .sidebar a:hover {
+            background-color: #ffe4da;
+            color: #FF5A2C;
+        }
+        .sidebar-bottom {
+            text-align: center;
+            padding: 10px;
+        }
+        .sidebar-bottom img {
+            width: 100px;
+        }
+        .navbar-custom {
+            margin-left: 240px;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+            height: 60px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .coin-stats {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-weight: 600;
+        }
+        .coin-stats span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            color: #444;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #eee;
+        }
+        .main-content {
+            margin-left: 240px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div>
+            <a href="#" class="active">Asosiy</a>
+            <a href="#">Kurslarim</a>
+            <a href="#">Eduverse</a>
+            <a href="#">&lt;MarsCode/&gt;</a>
+            <a href="#">Blog</a>
+            <a href="{% url 'space-shop' %}">Space shop</a>
+            <a href="#">Reytinglarim</a>
+        </div>
+        <div class="sidebar-bottom">
+            <img src="https://i.ibb.co/g4J9kYV/character.png" alt="Character">
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="navbar-custom">
+        <div class="coin-stats">
+            <span>🔥 1</span>
+            <span>🪙 84</span>
+            <span>⚡ 560</span>
+            <img src="https://via.placeholder.com/40" alt="avatar" class="avatar">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
