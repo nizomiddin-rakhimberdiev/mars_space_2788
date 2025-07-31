@@ -63,6 +63,7 @@ class Student(CustomUser):
     )
     coins = models.IntegerField(default=0)
     power = models.IntegerField(default=0)
+    birthday = models.DateField()
     coin_rating = models.IntegerField(default=0)
     rating = models.CharField(max_length=10, choices=RATINGS, default='Iron')
     typing_rating = models.IntegerField(default=0)
