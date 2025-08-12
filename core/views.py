@@ -34,11 +34,16 @@ def add_student_view(request):
                 if user is None:
                     student.username = username
                     student.password = password
+                    student.set_password(password)
                     student.save()
+                    with open('students.txt', 'a') as f:
+                        f.write(
+                            f"{student.first_name}, {student.last_name}, SpaceID: {student.username} Parol:{password}, \n")
                     return redirect('admin-page')
                 else:
-                    check_student()
-            check_student()
+                    return check_student()
+            return check_student()
+
     else:
         form = AddStudentForm()
     return render(request, 'core/add_student.html', {'form': form})

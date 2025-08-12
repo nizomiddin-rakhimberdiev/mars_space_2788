@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row g-3 ">
+  <h3 class="text-center text-danger">Siz rostdan ham shu narsani sotib olmoqchimisiz</h3>
+    <!-- Card 1 -->
+    <div class="col-6 col-md-4 col-lg-3"  style="margin: 150px auto">
+        <div class="card shadow-sm border-0 p-2 text-center h-100">
+            <img src="{{ product.image.url }}" class="mx-auto d-block mb-2" alt="Mars Pen" style="max-height: 200px;">
+            <h6 class="fw-bold mb-1">{{ product.name }}</h6>
+            <p class="mb-1 text-muted">
+                {{ product.price }} <span class="text-warning">🪙</span> | <span class="text-success">{{ product.stock }} ta qoldi</span>
+            </p>
+            <a href="{% url 'space-shop' %}" class="text-primary small fw-bold">Yo'q</a>
+            <a href="{% url 'buy_product' product.id %}" class="text-primary small fw-bold">Ha</a>
+        </div>
+    </div>
+    <!-- Qolgan cardlar ham shu tartibda -->
+</div>
+
+{% endblock %}

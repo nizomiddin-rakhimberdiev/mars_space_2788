@@ -7,6 +7,9 @@
 <body>
 
 <a href="{% url 'add-student' %}">Add student</a>
+<a href="{% url 'add-student' %}">Add Course</a>
+<a href="{% url 'add-student' %}">Add Teacher</a>
+<a href="{% url 'add-student' %}">Add Group</a>
 <ul>
     {% for student in students %}
         <li>{{ student.first_name }}</li>

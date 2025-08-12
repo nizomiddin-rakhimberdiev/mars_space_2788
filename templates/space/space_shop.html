@@ -21,7 +21,7 @@
             <p class="mb-1 text-muted">
                 {{ product.price }} <span class="text-warning">🪙</span> | <span class="text-success">{{ product.stock }} ta qoldi</span>
             </p>
-            <a href="#" class="text-primary small fw-bold">Sotib olish ></a>
+            <a href="{% url 'confirm_product' product.id %}" class="text-primary small fw-bold">Sotib olish ></a>
         </div>
     </div>
   {% endfor %}
