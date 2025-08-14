@@ -8,7 +8,8 @@ from .models import Product, ShopHistory
 # Create your views here.
 @login_required(login_url='student-login')
 def home_view(request):
-    return render(request, 'space/index.html')
+    student = Student.objects.get(id=request.user.id)
+    return render(request, 'space/index.html', {'student': student})
 
 def space_shop(request):
     products = Product.objects.all().order_by('price')
@@ -22,6 +23,11 @@ def confirm_buy_product(request, id):
 def buy_product(request, id):
     product = Product.objects.get(id=id)
     ShopHistory.objects.create(product=product, student=Student.objects.get(id=request.user.id))
+    product.stock-=1
+    product.save()
+    student = Student.objects.get(id=request.user.id)
+    student.coins -= product.price
+    student.save()
     return redirect('space-shop')
 
 def student_login(request):
