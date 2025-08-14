@@ -27,23 +27,30 @@ def add_student_view(request):
         form = AddStudentForm(request.POST)
         if form.is_valid():
             student = form.save(commit=False)
-            def check_student():
-                username = str(random.randint(1000000, 9999999))
-                password = str(random.randint(10000, 999999))
-                user = authenticate(username=username, password=password)
-                if user is None:
-                    student.username = username
-                    student.password = password
-                    student.set_password(password)
-                    student.save()
-                    with open('students.txt', 'a') as f:
-                        f.write(
-                            f"{student.first_name}, {student.last_name}, SpaceID: {student.username} Parol:{password}, \n")
-                    return redirect('admin-page')
-                else:
-                    return check_student()
-            return check_student()
 
+            # Yangi username va parol generatsiya qilish
+            while True:
+                username = str(random.randint(1000000, 9999999))
+                if not Student.objects.filter(username=username).exists():
+                    break
+
+            password = str(random.randint(10000, 999999))
+
+            # User modelining to‘g‘ri maydonlarini to‘ldirish
+            student.username = username
+            student.set_password(password)  # Hashlangan parol
+
+            student.save()
+
+            # Foydalanuvchi ma’lumotini faylga yozish
+            with open('students.txt', 'a') as f:
+                f.write(
+                    f"{student.first_name} {student.last_name}, "
+                    f"SpaceID: {username}, Parol: {password}\n"
+                )
+
+            return redirect('admin-page')
     else:
         form = AddStudentForm()
+
     return render(request, 'core/add_student.html', {'form': form})
